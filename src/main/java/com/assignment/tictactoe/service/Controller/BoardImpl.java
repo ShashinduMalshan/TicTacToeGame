@@ -18,32 +18,6 @@ public class BoardImpl {
 
     public void boardImpl(){
 
-        L1:  while (true) {
-            boolean validMove = false;
-            try {
-
-                System.out.print("Please enter the number of rows you would like to play : ");
-                int row = input.nextInt();
-                System.out.print("Please enter the number of columns you would like to play : ");
-                int col = input.nextInt();
-
-                Player humanPlayer = new HumanPlayer(this);
-                Player aiPlayer = new AiPlayer(this);
-
-                validMove=humanPlayer.move(row,col);
-                if (!validMove){
-                    continue ;
-                }
-                aiPlayer.move(row,col);
-
-
-
-                printBoard(); // print Board
-
-            }catch (ArrayIndexOutOfBoundsException e){
-                System.out.println("invalid input");
-            }
-        }
 
     }
 
