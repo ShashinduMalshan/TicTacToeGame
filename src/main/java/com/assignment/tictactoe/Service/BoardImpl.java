@@ -1,9 +1,11 @@
-package com.assignment.tictactoe.service.Controller;
+package com.assignment.tictactoe.Service;
+
+import com.assignment.tictactoe.controller.BoardController;
 
 import java.util.Random;
 import java.util.Scanner;
 
-public class BoardImpl {
+public class BoardImpl implements Board {
     Scanner input = new Scanner(System.in);
     Random rand = new Random();
 
@@ -26,6 +28,7 @@ public class BoardImpl {
         for (int i = 0; i < pieces.length; i++) {
             for (int j = 0; j < pieces[i].length; j++) {
                 pieces[i][j] = Piece.EMPTY;
+
             }
         }
     }
@@ -46,13 +49,14 @@ public class BoardImpl {
 
 
     //permenat
-    public void  updateMove(int row, int col, Piece piece){
+    public void   updateMove(int row, int col, Piece piece){
 
 
         if (isLegalMove(row,col)) {
             pieces[row][col] = piece;
             Piece won = checkWinner();
             System.out.println(won+"   dinAAAAAAAAAAAAAAAAAAAAAAAA");
+
         } else {
             System.out.println("Please Select Empty Row");
         }
@@ -73,7 +77,7 @@ public class BoardImpl {
                     System.out.print(pieces[i][j] + " ");
                 }
             }
-            System.out.println(); // Move to the next line after each row
+            System.out.println();
         }
     }
 
@@ -99,6 +103,9 @@ public class BoardImpl {
             return pieces[1][1];
         }
         return Piece.EMPTY;
+    }
+    public Piece getPieceAt(int row, int col) {
+        return pieces[row][col]; // Assuming `board` is a 2D array of Piece objects
     }
 
 }

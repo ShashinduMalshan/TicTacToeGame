@@ -3,6 +3,6 @@ module com.assignment.tictactoe.service.tictactoe {
     requires javafx.fxml;
 
 
-    opens com.assignment.tictactoe.service.Controller to javafx.fxml;
-    exports com.assignment.tictactoe.service;
+    opens com.assignment.tictactoe.controller to javafx.fxml;
+    exports com.assignment.tictactoe;
 }

@@ -1,4 +1,4 @@
-package com.assignment.tictactoe.service.Controller;
+package com.assignment.tictactoe.Service;
 
 
 public abstract class Player {
