@@ -1,7 +1,5 @@
 package com.assignment.tictactoe.Service;
 
-import com.assignment.tictactoe.controller.BoardController;
-
 import java.util.Random;
 import java.util.Scanner;
 
@@ -18,10 +16,7 @@ public class BoardImpl implements Board {
     }
 
 
-    public void boardImpl(){
 
-
-    }
 
     //permenat
     public void initializeBoard(){
@@ -56,13 +51,23 @@ public class BoardImpl implements Board {
             pieces[row][col] = piece;
             Piece won = checkWinner();
             System.out.println(won+"   dinAAAAAAAAAAAAAAAAAAAAAAAA");
+            isDraw();
 
         } else {
             System.out.println("Please Select Empty Row");
         }
 
     }
-
+public boolean isDraw(){
+        for (int i = 0; i < pieces.length; i++) {
+            for (int j = 0; j < pieces[i].length; j++) {
+                if (pieces[i][j] == Piece.EMPTY) {
+                    return false;
+                }
+            }
+        }
+        return true;
+}
 
     //permenat
     public void printBoard(){
@@ -98,15 +103,24 @@ public class BoardImpl implements Board {
             System.out.println("Condition 3");
             return pieces[1][1];
         }
-        if (pieces[0][2] == pieces[1][1] && pieces[1][1] == pieces[2][2] && pieces[0][2] != Piece.EMPTY) {
+        if (pieces[2][0] == pieces[1][1] && pieces[1][1] == pieces[0][2] && pieces[0][2] != Piece.EMPTY) {
             System.out.println("Condition 4");
             return pieces[1][1];
         }
         return Piece.EMPTY;
     }
-    public Piece getPieceAt(int row, int col) {
-        return pieces[row][col]; // Assuming `board` is a 2D array of Piece objects
+    public String getPieceAt(int row, int col) {
+        if (pieces[row][col] == Piece.EMPTY) {
+          return " ";
+        }
+        return pieces[row][col].toString();
     }
-
+    public Piece[][] getPieces() {
+        Piece[][] piecesCopy = new Piece[3][3];
+        for (int i = 0; i < pieces.length; i++) {
+            System.arraycopy(pieces[i], 0, piecesCopy[i], 0, pieces[i].length);
+        }
+        return piecesCopy;
+    }
 }
 

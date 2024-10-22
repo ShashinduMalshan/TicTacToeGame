@@ -22,7 +22,7 @@ public class Appinitializer extends Application {
 
 
         Scene scene = new Scene(load);
-        stage.setTitle("gg");
+        stage.setTitle("Tic Tac Toe");
         stage.setScene(scene);
 
         stage.show();

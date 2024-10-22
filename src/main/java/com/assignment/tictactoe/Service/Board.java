@@ -7,7 +7,7 @@ public interface Board {
     void updateMove(int row, int col, Piece piece);
     Piece checkWinner();
     void printBoard();
-    Piece getPieceAt(int row, int col);
+    String getPieceAt(int row, int col);
 
 
 }

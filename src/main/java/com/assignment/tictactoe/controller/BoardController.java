@@ -1,10 +1,15 @@
 package com.assignment.tictactoe.controller;
 
 import com.assignment.tictactoe.Service.*;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
+
+import java.util.Optional;
 
 public class BoardController {
     public Button btn1;
@@ -60,7 +65,51 @@ public class BoardController {
             System.out.println(board.checkWinner()+" Player wins!");
             lblWinner.setText(board.checkWinner() == Piece.X ? " You wins! " : " You lost! ");
 
+
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle(lblWinner.getText());
+            alert.setHeaderText("Do you want to play again");
+            //  alert.setContentText("Are you sure you want to proceed?");
+
+            Optional<ButtonType> result = alert.showAndWait();
+
+            if (result.isPresent() && result.get() == ButtonType.OK) {
+                System.out.println("User chose OK");
+                board.initializeBoard();
+                updateUI();
+                lblWinner.setText("");
+
+
+            } else {
+                System.out.println("User cancelled the action");
+                Platform.exit();
+
+            }
+
+        }else { boolean draw = board.isDraw();
+            if (draw) {
+                System.out.println("The game is a draw!");
+                lblWinner.setText("Draw");
+
+                // Add the alert for the draw condition
+                Alert drawAlert = new Alert(Alert.AlertType.CONFIRMATION);
+                drawAlert.setTitle("Game Draw");
+                drawAlert.setHeaderText("The game is a draw. Do you want to play again?");
+                Optional<ButtonType> result = drawAlert.showAndWait();
+
+                if (result.isPresent() && result.get() == ButtonType.OK) {
+                    System.out.println("User chose OK");
+                    board.initializeBoard();
+                    updateUI();
+                    lblWinner.setText("");
+                } else {
+                    System.out.println("User cancelled the action");
+                    Platform.exit();
+                }
+
+           }
         }
+
 
     }
 
