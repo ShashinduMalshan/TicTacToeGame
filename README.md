@@ -1,3 +1,13 @@
+
+# 🏆 Tic-Tac-Toe with AI
+
+Welcome to the **Tic-Tac-Toe AI Game**! This project is a **Java-based** implementation of the classic Tic-Tac-Toe game, featuring an **AI opponent** with three difficulty levels: **Easy**, **Medium**, and **Hard**. The "Hard" mode utilizes the **Minimax algorithm**, making the AI **unbeatable**. 
+
+The game features a **graphical user interface (GUI) built with JavaFX and styled with CSS** for a modern look and smooth gameplay.
+
+---
+
+
 To incorporate the details from the screenshot and the technologies used (Java 17, JavaFX, and CSS) into your `README.md` file, you can update it as follows:
 
 ```markdown
@@ -58,12 +68,6 @@ The "Hard" difficulty uses the **Minimax algorithm**, a recursive algorithm used
 - **JavaFX**: For building the graphical user interface.
 - **CSS**: For styling the GUI components.
 
-## Code Structure
-
-- `TicTacToe.java`: The main game class containing the game logic and AI implementation.
-- `styles.css`: The CSS file for styling the JavaFX components.
-- `README.md`: This file, providing an overview of the project.
-- (Optional) Other supporting files or classes, if any.
 
 ## Requirements
 
