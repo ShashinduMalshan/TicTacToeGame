@@ -37,18 +37,17 @@ The game features a graphical user interface (GUI) built with **JavaFX** and sty
    ```bash
    git clone https://github.com/your-username/tic-tac-toe-ai.git
    cd tic-tac-toe-ai
-   ```
+  
 
 2. Compile and run the game:
-   ```bash
    javac --module-path /path/to/javafx-sdk-XX/lib --add-modules javafx.controls,javafx.fxml TicTacToe.java
    java --module-path /path/to/javafx-sdk-XX/lib --add-modules javafx.controls,javafx.fxml TicTacToe
-   ```
+   
 
    Replace `/path/to/javafx-sdk-XX` with the actual path to your JavaFX SDK and `XX` with the version number.
 
 3. Follow the on-screen instructions to select the difficulty level and make your moves.
-
+```
 ## Tic-Tac-Toe Board View
 [![Tic-Tac-Toe Board View](src/main/resources/assets/Screenshot%20from%202025-02-25%2012-23-46.png)](src/main/resources/assets/Screenshot%20from%202025-02-25%2012-23-46.png)
 
