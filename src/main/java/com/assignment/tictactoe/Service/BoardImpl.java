@@ -1,11 +1,7 @@
 package com.assignment.tictactoe.Service;
 
-import java.util.Random;
-import java.util.Scanner;
 
-public class BoardImpl implements Board {
-    Scanner input = new Scanner(System.in);
-    Random rand = new Random();
+public class BoardImpl implements BoardUi {
 
     private Piece[][] pieces;
 
@@ -44,7 +40,7 @@ public class BoardImpl implements Board {
 
 
     //permenat
-    public void   updateMove(int row, int col, Piece piece){
+    public void updateMove(int row, int col, Piece piece){
 
 
         if (isLegalMove(row,col)) {
@@ -58,7 +54,9 @@ public class BoardImpl implements Board {
         }
 
     }
-public boolean isDraw(){
+
+
+    public boolean isDraw(){
         for (int i = 0; i < pieces.length; i++) {
             for (int j = 0; j < pieces[i].length; j++) {
                 if (pieces[i][j] == Piece.EMPTY) {
@@ -67,7 +65,7 @@ public boolean isDraw(){
             }
         }
         return true;
-}
+    }
 
     //permenat
     public void printBoard(){
@@ -86,7 +84,7 @@ public boolean isDraw(){
         }
     }
 
-    public Piece  checkWinner() {
+    public Piece checkWinner() {
 
 
         for (int i = 0; i < 3; i++) {
@@ -111,16 +109,13 @@ public boolean isDraw(){
     }
     public String getPieceAt(int row, int col) {
         if (pieces[row][col] == Piece.EMPTY) {
-          return " ";
+            return " ";
         }
         return pieces[row][col].toString();
     }
-    public Piece[][] getPieces() {
-        Piece[][] piecesCopy = new Piece[3][3];
-        for (int i = 0; i < pieces.length; i++) {
-            System.arraycopy(pieces[i], 0, piecesCopy[i], 0, pieces[i].length);
+    public void undoMove(int row, int col) {
+        if (row >= 0 && row < 3 && col >= 0 && col < 3) {
+            pieces[row][col] = Piece.EMPTY; // Reset the cell to its original state
         }
-        return piecesCopy;
     }
 }
-

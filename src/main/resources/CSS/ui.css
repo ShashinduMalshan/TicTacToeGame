@@ -1,0 +1,136 @@
+/* Root background with semi-transparency */
+.root {
+    -fx-background-color: rgba(44, 62, 80, 0.9); /* Dark background with slight transparency */
+}
+
+/* General label styling */
+.label {
+    -fx-text-fill: #ecf0f1;
+    -fx-font-family: "Roboto";
+    -fx-font-weight: bold;
+}
+
+/* Title Label Styling */
+#lble {
+    -fx-text-fill: #ecf0f1;
+    -fx-font-size: 34px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.4), 10, 0.5, 1, 1);
+}
+
+/* Winner Label Styling */
+#lblWinner {
+    -fx-text-fill: #1abc9c;
+    -fx-font-size: 28px;
+    -fx-font-family: "Roboto Light";
+}
+
+/* Button styling for Tic-Tac-Toe grid */
+.button {
+    -fx-background-radius: 8;
+    -fx-background-color: rgba(231, 76, 60, 0.9); /* Semi-transparent red */
+    -fx-text-fill: #ecf0f1;
+    -fx-font-family: "Roboto Bold";
+    -fx-font-size: 36px;
+    -fx-padding: 5;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 4, 0.5, 0, 1);
+}
+
+.button:hover {
+    -fx-background-color: rgba(255, 118, 117, 0.9);
+}
+
+.button:pressed {
+    -fx-background-color: rgba(192, 57, 43, 0.9);
+}
+
+/* Restart Button styling with fixed height and transparency */
+#restartBtn {
+    -fx-background-color: rgba(52, 152, 219, 0.9);
+    -fx-text-fill: #ecf0f1;
+    -fx-font-family: "Roboto Medium";
+    -fx-font-size: 14px;
+    -fx-background-radius: 6;
+    -fx-padding: 5 12;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.25), 4, 0.5, 0, 1);
+    -fx-min-height: 36px;
+    -fx-pref-height: 36px;
+}
+
+#restartBtn:hover {
+    -fx-background-color: rgba(41, 128, 185, 0.9);
+}
+
+#restartBtn:pressed {
+    -fx-background-color: rgba(33, 97, 140, 0.9);
+}
+
+/* MenuButton styling */
+.menu-button {
+    -fx-background-color: rgba(26, 188, 156, 0.9); /* Semi-transparent teal */
+    -fx-text-fill: white;
+    -fx-font-family: "Roboto";
+    -fx-font-size: 16px;
+    -fx-background-radius: 8;
+    -fx-padding: 5 10;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 3, 0.4, 0, 1);
+}
+
+.menu-button:hover {
+    -fx-background-color: rgba(22, 160, 133, 0.9);
+}
+
+.menu-button:pressed {
+    -fx-background-color: rgba(19, 133, 109, 0.9);
+}
+
+/* Difficulty Button styling with semi-transparent background */
+#difficultyMenuButton {
+    -fx-background-color: rgba(230, 126, 34, 0.9); /* Semi-transparent orange */
+    -fx-text-fill: #ecf0f1;
+    -fx-font-family: "Roboto Medium";
+    -fx-font-size: 14px;
+    -fx-background-radius: 8;
+    -fx-padding: 5 12;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 3, 0.4, 0, 1);
+    -fx-border-color: #d35400;
+    -fx-border-width: 1;
+    -fx-border-radius: 8;
+    -fx-min-height: 36px;
+    -fx-pref-height: 40px;
+    -fx-pref-width: 150px;
+    -fx-max-width: 125px;
+    -fx-transition: all 0.3s ease;
+}
+
+#difficultyMenuButton:hover {
+    -fx-background-color: rgba(211, 84, 0, 0.9);
+}
+
+#difficultyMenuButton:pressed {
+    -fx-background-color: rgba(198, 93, 31, 0.9);
+}
+
+/* Styling for each MenuItem under difficulty with semi-transparent background and spacing */
+.menu-item {
+    -fx-background-color: rgba(52, 73, 94, 0.9); /* Dark semi-transparent background */
+    -fx-text-fill: #ecf0f1;
+    -fx-font-family: "Roboto Light";
+    -fx-padding: 8 10; /* Increase padding for more space */
+    -fx-background-radius: 5;
+    -fx-pref-width: 100px;
+    -fx-transition: all 0.3s ease;
+}
+
+/* Add a small margin effect between items */
+.menu-item:hover {
+    -fx-background-color: rgba(59, 83, 109, 0.9);
+    -fx-text-fill: #ecf0f1;
+}
+
+.menu-item:focused {
+    -fx-background-color: rgba(74, 107, 133, 0.9);
+    -fx-text-fill: #ecf0f1;
+}

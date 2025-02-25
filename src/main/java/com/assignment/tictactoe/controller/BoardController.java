@@ -4,12 +4,10 @@ import com.assignment.tictactoe.Service.*;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.Label;
+import javafx.scene.control.*;
 
 import java.util.Optional;
+import java.util.Random;
 
 public class BoardController {
     public Button btn1;
@@ -23,15 +21,22 @@ public class BoardController {
     public Button btn9;
     public Label lble;
     public Label lblWinner;
+    public Button restartBtn;
+    public MenuItem essy;
+    public MenuItem hard;
+    public MenuItem medium;
+    public MenuButton difficultyMenuButton;
     private BoardImpl board;
     private Player humanPlayer;
     private Player aiPlayer;
+    private Player difficulty;
 
     public BoardController() {
 
         board = new BoardImpl();
         humanPlayer = new HumanPlayer(board);
-        aiPlayer = new AiPlayer(board);
+        aiPlayer = new HardAiPlayer(board);
+        difficulty = new HardAiPlayer(board);
 
     }
 
@@ -40,17 +45,18 @@ public class BoardController {
         System.out.println("row: " + row + " col: " + col);
 
 
-        boolean validMove = humanPlayer.move(row, col);
+        boolean legalMove=humanPlayer.move(row, col);
         updateUI();
-        if (validMove) {
-            aiPlayer.move(row, col);
+
+        if (legalMove){
+            difficulty. move(row,col) ;
             updateUI();
             board.printBoard();
 
-        } else {
-            System.out.println("Invalid move, try again!");
-            updateUI();
+        }else {
+            System.out.println("Invalid move");
         }
+
         winner();
 
 
@@ -91,7 +97,6 @@ public class BoardController {
                 System.out.println("The game is a draw!");
                 lblWinner.setText("Draw");
 
-                // Add the alert for the draw condition
                 Alert drawAlert = new Alert(Alert.AlertType.CONFIRMATION);
                 drawAlert.setTitle("Game Draw");
                 drawAlert.setHeaderText("The game is a draw. Do you want to play again?");
@@ -107,7 +112,7 @@ public class BoardController {
                     Platform.exit();
                 }
 
-           }
+            }
         }
 
 
@@ -166,4 +171,51 @@ public class BoardController {
     public void btn9Action(ActionEvent actionEvent) {
         btnAction(2,2);
     }
+
+   
+
+    public void restartBtnAction(ActionEvent actionEvent) {
+        board.initializeBoard();
+        updateUI();
+        lblWinner.setText("");
+    }
+
+    public void essyOnAction(ActionEvent actionEvent) {
+
+            board.initializeBoard();
+            updateUI();
+            difficulty = new EssyAiPlayer(board);
+            difficultyMenuButton.setText("Essy");
+    }
+
+    public void hardOnAction(ActionEvent actionEvent) {
+        board.initializeBoard();
+        updateUI();
+        difficulty = new HardAiPlayer(board);
+        difficultyMenuButton.setText("Hard");
+    }
+
+    public void mediumOnAction(ActionEvent actionEvent) {
+
+        difficultyMenuButton.setText("Medium");
+        board.initializeBoard();
+        updateUI();
+        int rand = new Random().nextInt(2);
+        if (rand==1){
+            difficulty = new EssyAiPlayer(board);
+            System.out.println("EssyAiPlayer");
+        }
+        else {difficulty = new HardAiPlayer(board);
+        System.out.println("HardAiPlayer");}
+
+
+        if((!(board.checkWinner()==Piece.EMPTY))|| board.isDraw()){
+            board.initializeBoard();
+            updateUI();
+            mediumOnAction(actionEvent);
+        }
+
+
+    }
+
 }
